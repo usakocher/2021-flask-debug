@@ -5,14 +5,6 @@ from may_blog.forms import BlogPostForm
 
 site = Blueprint('site', __name__, template_folder='site_templates')
 
-"""
-IN the above code, some arguments are specified when creating the Blueprint object
-This first argument 'site', is the Blueprint's name,
-this will be used by flasks routing mechanism.
-The second parameter __name__, is the BP's import name,
-which flask uses to locate resources
-"""
-
 @site.route('/')
 def home():
     posts = Post.query.all
