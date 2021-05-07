@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header class="banner">
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories = true) %}
+            {% if messages %}
+                {% for cat,msg in messages %}
+                    {% if cat == 'user-created' %}
+                        <div class="alert alert-success">
+                            {{ msg }}
+                            <button type='button' class='close' data-dismiss='alert'>&times;</button>
+                        </div>
+                    {% elif cat == 'auth-uncertain' %}
+                        <div class="alert alert-success">
+                            {{ msg }}
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <h1 class="header-text">The May Operators Blog</h1>
+</header>
+
+
+{% if currentuser.is_authenticated %}
+    <h2>Hello there {{ current_user.email }}</h2>
+    <div class="container">
+    {% for post in posts %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{ post.tile }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">By: {{ post.username }}</h6>
+              <p class="card-text">{{ post.content }}</p>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+    {% else %}
+    <h2>Log in to see/make posts!</h2>
+
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories = true) %}
+            {% if messages %}
+                {% for cat,msg in messages %}
+                    {% if cat == 'auth-failed' %}
+                        <div class="alert alert-danger">
+                            {{ msg }}
+                            <button type='button' class='close' data-dismiss='alert'>&times;</button>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <h1>Sign In</h1>
+    {% include 'auth_login.html' %}
+</div>
+
+{% endblock content %}
