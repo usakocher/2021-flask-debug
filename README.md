@@ -12,4 +12,4 @@
    - create a new virtualenv and activate said environment
    - `pip install -r requirements.txt` to download dependencies
    - create a db in PGAdmin and add any necessary variables in a .env file
-   - run your flask db commands (init, migrate, upgrade) to make your table able to store data
+   - run your flask db commands (init, migrate, upgrade) to create tables that store application data
