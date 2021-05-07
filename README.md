@@ -7,7 +7,7 @@
 ## Getting Starting
    - fork from this repository
    - find the remote address for your copied repository and copy it
-   - open a terminal/CMD and 'git clone' your copied address
+   - open a terminal/CMD and `git clone` your copied address
    - change into your newly created directory
    - create a new virtualenv and activate said environment
    - `pip install -r requirements.txt` to download dependencies
