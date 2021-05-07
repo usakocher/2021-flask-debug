@@ -15,4 +15,4 @@
    - run your flask db commands (init, migrate, upgrade) to create table(s) that store application data
 
 ## From there..
-let the error-handling begin!
+Let the error-handling begin!
