@@ -11,8 +11,13 @@
                             {{ msg }}
                             <button type='button' class='close' data-dismiss='alert'>&times;</button>
                         </div>
-                    {% elif cat == 'auth-uncertain' %}
+                    {% elif cat == 'auth-success' %}
                         <div class="alert alert-success">
+                            {{ msg }}
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        </div>
+                    {% elif cat == 'logout' %}
+                        <div class="alert alert-danger">
                             {{ msg }}
                             <button type="button" class="close" data-dismiss="alert">&times;</button>
                         </div>
@@ -25,15 +30,15 @@
 </header>
 
 
-{% if currentuser.is_authenticated %}
+{% if current_user.is_authenticated %}
     <h2>Hello there {{ current_user.email }}</h2>
     <div class="container">
     {% for post in posts %}
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title">{{ post.tile }}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">By: {{ post.username }}</h6>
-              <p class="card-text">{{ post.content }}</p>
+                <h5 class="card-title">{{ post.title }}</h5>
+                <h6 class="card-subtitle mb-2">By: {{ current_user.username }}</h6>
+                <p class="card-text">{{ post.content }}</p>
             </div>
         </div>
     {% endfor %}
